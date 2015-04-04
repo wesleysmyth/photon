@@ -1,0 +1,30 @@
+{
+  "name": "photon",
+  "version": "1.0.0",
+  "description": "Add photos to a collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wesleysmyth/photon.git"
+  },
+  "author": "Wes (wesleytatesmith@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wesleysmyth/photon/issues"
+  },
+  "homepage": "https://github.com/wesleysmyth/photon",
+  "devDependencies": {
+    "browser-sync": "^2.5.2",
+    "gulp": "^3.8.11",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-shell": "^0.4.0",
+    "gulp-stylus": "^2.0.1"
+  },
+  "dependencies": {
+    "express": "^4.12.3",
+    "stylus": "^0.50.0"
+  }
+}
