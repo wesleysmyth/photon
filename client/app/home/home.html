@@ -1,0 +1,19 @@
+<!-- <h2>{{vm.test}}</h2> -->
+
+<div class="container">
+  <section class="sidebar">
+    <header class="collection-header">
+      <h2>All Collections</h2>
+    </header>
+    <ul>
+      <li ng-repeat="collection in vm.collections">
+        <h3>{{collection.title}}</h3>
+        <button class="view-collection" ng-click="vm.viewCollection(vm.collections.indexOf(collection))">View</button>
+      </li>
+    </ul>
+  </section>
+  <section class="main">
+    <h2 class="current-collection-title">{{vm.currentCollection.title}}</h2>
+    <h4>Number of photos : {{vm.currentCollection.photos.length}}</h4>
+  </section>
+</div>

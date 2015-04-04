@@ -1,3 +1,68 @@
 body {
   background-color: #fafafa;
+  margin: 0;
+  font-family: Helvetica;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+/* Wrapper that contains both sidebar and the main photo section */
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+/* sidebar styles */
+/* main photo section styles */
+}
+.container .collection-header {
+  background-color: #000;
+}
+.container .collection-header h2 {
+  text-align: center;
+  padding: 10px 0 10px 0;
+  color: #fff;
+}
+.container .sidebar {
+  width: 20%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+/* view collection button */
+/* styles for each item in the sidebar */
+}
+.container .sidebar .view-collection {
+  float: right;
+  margin-top: -28px;
+  margin-right: 10px;
+}
+.container .sidebar ul {
+  margin: 0;
+  padding: 0;
+}
+.container .sidebar li {
+  list-style: none;
+  border-bottom: 1px solid #d0d0d0;
+}
+.container .sidebar li h3 {
+  margin: 14px 0 10px 20px;
+}
+.container .main {
+  background-color: #ffa500;
+  width: 80%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+/* collection title */
+}
+.container .main .current-collection-title {
+  text-align: center;
 }
