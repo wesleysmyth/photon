@@ -1,23 +1,25 @@
 (function() {
   'use strict';
 
-  angular.module('app', [
-    'app.home',
-    'ui.router'
-  ])
+  angular
+    .module('app', [
+      'app.core',
+      'app.home',
+      'ui.router'
+    ])
+    
+    .config(function ($stateProvider, $urlRouterProvider) {
 
-  .config(function ($stateProvider, $urlRouterProvider) {
+      $stateProvider
+        .state('home', {
+          url: '/home',
+          templateUrl: 'app/home/home.html',
+          controller: 'Home as vm'
+        })
 
-    $stateProvider
-      .state('home', {
-        url: '/home',
-        templateUrl: 'app/home/home.html',
-        controller: 'Home as vm'
-      })
+      // if none of the above states are matched, use this as the fallback
+      $urlRouterProvider.otherwise('/home');
+    });
 
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/home');
-  });
-  
 })();
 

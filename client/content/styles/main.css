@@ -11,6 +11,9 @@ h5,
 h6 {
   margin: 0;
 }
+button {
+  cursor: pointer;
+}
 /* Wrapper that contains both sidebar and the main photo section */
 .container {
   position: fixed;
@@ -20,6 +23,8 @@ h6 {
   left: 0;
 /* sidebar styles */
 /* main photo section styles */
+/* modal styles */
+/* inner window for the modal */
 }
 .container .collection-header {
   background-color: #000;
@@ -31,7 +36,7 @@ h6 {
 }
 .container .sidebar {
   width: 20%;
-  background-color: #fff;
+  background-color: #fafafa;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -53,16 +58,76 @@ h6 {
 }
 .container .sidebar li h3 {
   margin: 14px 0 10px 20px;
+  max-width: 74%;
+}
+.container .sidebar .add-collection h3 {
+  text-align: center;
+  padding: 10px 0 0 0;
+}
+.container .sidebar .add-collection img {
+  width: 50px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
 }
 .container .main {
-  background-color: #ffa500;
+  background-color: #ddf2dd;
   width: 80%;
   position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
+  overflow: scroll;
 /* collection title */
+/* photo wrapper div */
+/* individual photo styles */
 }
 .container .main .current-collection-title {
   text-align: center;
+  margin: 20px 0 0 0;
+}
+.container .main .photo-numbers {
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+.container .main .add-photo {
+  display: block;
+  margin: 10px auto 0px auto;
+}
+.container .main .photo-wrapper {
+  text-align: center;
+}
+.container .main .photo {
+  display: inline;
+}
+.container .main .photo img {
+  margin: 0.3%;
+}
+.container #modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.4);
+}
+.container .hide {
+  display: none;
+}
+.container .inner {
+  width: 50%;
+  margin: -50px 0 0 -25%;
+  text-align: center;
+  background-color: #fff;
+  height: 100px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  border-radius: 3px;
+}
+.container .inner h2 {
+  margin: 10px 0 10px 0;
+}
+.container .inner .cancel {
+  margin: 10px 0 10px 0;
 }

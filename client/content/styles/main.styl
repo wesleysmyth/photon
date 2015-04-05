@@ -5,6 +5,9 @@ body
   
 h1, h2, h3, h4, h5, h6
   margin 0
+  
+button
+  cursor pointer
 
 /* Wrapper that contains both sidebar and the main photo section */
 .container
@@ -25,7 +28,7 @@ h1, h2, h3, h4, h5, h6
   /* sidebar styles */
   .sidebar
     width 20%
-    background-color white
+    background-color #FAFAFA
     position fixed
     top 0
     bottom 0
@@ -43,24 +46,90 @@ h1, h2, h3, h4, h5, h6
     /* styles for each item in the sidebar */
     li
       list-style none
-      border-bottom 1px solid #d0d0d0
+      border-bottom 1px solid #D0D0D0
       
       h3  
         margin 14px 0 10px 20px
+        max-width 74%
     
+    .add-collection
+      
+      h3
+        text-align center
+        padding 10px 0 0 0 
+      
+      img
+        width 50px
+        display block
+        margin 0 auto
+        cursor pointer
     
   /* main photo section styles */
   .main
-    background-color orange
+    background-color #DDF2DD
     width 80%
     position fixed
     right 0
     top 0
     bottom 0
+    overflow scroll
 
     /* collection title */
     .current-collection-title
       text-align center
+      margin 20px 0 0 0
+      
+    .photo-numbers
+      text-align center
+      margin 10px 0 0 0
+      
+    .add-photo
+      display block
+      margin 10px auto 0px auto
+      
+    /* photo wrapper div */
+    .photo-wrapper
+      text-align center
+      
+    .photo
+      display inline
+      
+    /* individual photo styles */  
+    .photo img
+      margin 0.3%
+      
+
+  /* modal styles */
+  #modal
+    position fixed
+    top 0
+    right 0
+    bottom 0
+    left 0
+    background-color rgba(0,0,0,0.4)
+  
+  .hide
+    display none
+
+  /* inner window for the modal */
+  .inner
+    width 50%
+    margin -50px 0 0 -25%
+    text-align center
+    background-color #FFF
+    height 100px
+    position absolute
+    top 30%
+    left 50%
+    border-radius 3px
+    
+    h2
+      margin 10px 0 10px 0
+  
+    .cancel
+      margin 10px 0 10px 0
+      
+  
 
 
 

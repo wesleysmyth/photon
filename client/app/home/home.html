@@ -11,9 +11,29 @@
         <button class="view-collection" ng-click="vm.viewCollection(vm.collections.indexOf(collection))">View</button>
       </li>
     </ul>
+    <div class="add-collection">
+      <h3>Add a Collection</h3>
+      <img src="../../content/img/plus.svg" ng-click="vm.showModal()">
+    </div>
   </section>
   <section class="main">
     <h2 class="current-collection-title">{{vm.currentCollection.title}}</h2>
-    <h4>Number of photos : {{vm.currentCollection.photos.length}}</h4>
+    <h4 class="photo-numbers">Number of photos : {{vm.currentCollection.photos.length}}</h4>
+    <button class="add-photo">Add a photo to this collection</button>
+    <div class="photo-wrapper">
+      <div class="photo" ng-repeat="photo in vm.currentCollection.photos">
+        <img src="{{photo.src}}">
+      </div>
+    </div>
+    <div id="modal" class="hide">
+      <div class="inner">
+        <h2>Give your new collection a title</h2>
+        <form class="collection-form" name="newCollection" ng-submit="vm.addCollection(vm.collectionTitle)">
+          <input type="text" ng-model="vm.collectionTitle" required>
+          <input type="submit" value="Create Collection">
+        </form>
+        <button class="cancel">Cancel</button>
+      </div>
+    </div>
   </section>
 </div>
