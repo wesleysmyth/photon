@@ -2,6 +2,7 @@ body {
   background-color: #fafafa;
   margin: 0;
   font-family: Helvetica;
+  color: #5f505b;
 }
 h1,
 h2,
@@ -11,8 +12,15 @@ h5,
 h6 {
   margin: 0;
 }
-button {
+button,
+input[type=submit] {
   cursor: pointer;
+  color: #fff;
+  border-radius: 4px;
+  background: #398999;
+  border: none;
+  padding: 5px;
+  font-size: 12px;
 }
 /* Wrapper that contains both sidebar and the main photo section */
 .container {
@@ -27,16 +35,16 @@ button {
 /* inner window for the modal */
 }
 .container .collection-header {
-  background-color: #000;
+  background-color: #5f505b;
 }
 .container .collection-header h2 {
   text-align: center;
   padding: 10px 0 10px 0;
-  color: #fff;
+  color: #fafafa;
 }
 .container .sidebar {
   width: 20%;
-  background-color: #fafafa;
+  background-color: #f5ead8;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -45,7 +53,7 @@ button {
 }
 .container .sidebar .view-collection {
   float: right;
-  margin-top: -28px;
+  margin-top: -33px;
   margin-right: 10px;
 }
 .container .sidebar ul {
@@ -71,7 +79,7 @@ button {
   cursor: pointer;
 }
 .container .main {
-  background-color: #ddf2dd;
+  background-color: #d8dfcf;
   width: 80%;
   position: fixed;
   right: 0;
@@ -80,7 +88,6 @@ button {
   overflow: scroll;
 /* collection title */
 /* photo wrapper div */
-/* individual photo styles */
 }
 .container .main .current-collection-title {
   text-align: center;
@@ -90,18 +97,33 @@ button {
   text-align: center;
   margin: 10px 0 0 0;
 }
-.container .main .add-photo {
+.container .main .delete-collection {
   display: block;
-  margin: 10px auto 0px auto;
+  margin: 10px auto;
 }
 .container .main .photo-wrapper {
   text-align: center;
 }
 .container .main .photo {
-  display: inline;
+  display: inline-block;
+  margin: 5px;
 }
 .container .main .photo img {
-  margin: 0.3%;
+  border-radius: 2px;
+}
+.container .main .photo .photo-title {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+  text-align: left;
+}
+.container .main .photo .photo-to-collection {
+  display: block;
+  margin: 5px 0 5px 0;
+}
+.container .main .photo .remove-photo {
+  display: block;
 }
 .container #modal {
   position: fixed;
@@ -112,14 +134,14 @@ button {
   background-color: rgba(0,0,0,0.4);
 }
 .container .hide {
-  display: none;
+  display: none !important;
 }
 .container .inner {
   width: 50%;
-  margin: -50px 0 0 -25%;
+  margin: -50px 0 0 -15%;
   text-align: center;
   background-color: #fff;
-  height: 100px;
+  height: auto;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -129,5 +151,23 @@ button {
   margin: 10px 0 10px 0;
 }
 .container .inner .cancel {
+  margin: 0 0 10px 0;
+}
+.container .inner .add-photo {
+  display: block;
+  margin: 10px auto;
+}
+.container .inner .photo-preview {
+  width: 100px;
+  height: 100px;
+  margin: 0 0 20px 0;
+}
+.container .inner .collection-create {
+  margin: 10px 0 20px 0;
+}
+.container .inner .collection-form {
   margin: 10px 0 10px 0;
+}
+.container .inner .yes {
+  margin: 0 0 10px 0;
 }

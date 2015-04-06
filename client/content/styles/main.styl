@@ -1,13 +1,20 @@
 body
-  background-color #fafafa
+  background-color #FAFAFA
   margin 0
   font-family Helvetica
+  color #5F505B
   
 h1, h2, h3, h4, h5, h6
   margin 0
   
-button
+button, input[type=submit]
   cursor pointer
+  color white
+  border-radius 4px
+  background #398999
+  border none
+  padding 5px
+  font-size 12px
 
 /* Wrapper that contains both sidebar and the main photo section */
 .container
@@ -18,17 +25,17 @@ button
   left 0
   
   .collection-header
-    background-color #000
+    background-color #5F505B
     
     h2
       text-align center
       padding 10px 0 10px 0
-      color #FFF
+      color #FAFAFA
   
   /* sidebar styles */
   .sidebar
     width 20%
-    background-color #FAFAFA
+    background-color #F5EAD8
     position fixed
     top 0
     bottom 0
@@ -36,7 +43,7 @@ button
     /* view collection button */
     .view-collection
       float right
-      margin-top -28px
+      margin-top -33px
       margin-right 10px
     
     ul
@@ -66,7 +73,7 @@ button
     
   /* main photo section styles */
   .main
-    background-color #DDF2DD
+    background-color #D8DFCF
     width 80%
     position fixed
     right 0
@@ -83,22 +90,35 @@ button
       text-align center
       margin 10px 0 0 0
       
-    .add-photo
+    .delete-collection
       display block
-      margin 10px auto 0px auto
+      margin 10px auto
       
     /* photo wrapper div */
     .photo-wrapper
       text-align center
-      
-    .photo
-      display inline
-      
-    /* individual photo styles */  
-    .photo img
-      margin 0.3%
-      
 
+    .photo
+      display inline-block
+      margin 5px
+      
+      img
+        border-radius 2px
+    
+      .photo-title
+        display block
+        position relative
+        text-decoration none
+        font-size 20px
+        text-align left
+      
+      .photo-to-collection
+        display block
+        margin 5px 0 5px 0
+        
+      .remove-photo
+        display block
+                
   /* modal styles */
   #modal
     position fixed
@@ -109,15 +129,15 @@ button
     background-color rgba(0,0,0,0.4)
   
   .hide
-    display none
+    display none !important
 
   /* inner window for the modal */
   .inner
     width 50%
-    margin -50px 0 0 -25%
+    margin -50px 0 0 -15%
     text-align center
     background-color #FFF
-    height 100px
+    height auto
     position absolute
     top 30%
     left 50%
@@ -127,15 +147,22 @@ button
       margin 10px 0 10px 0
   
     .cancel
+      margin 0 0 10px 0
+      
+    .add-photo
+      display block
+      margin 10px auto
+
+    .photo-preview
+      width 100px
+      height 100px
+      margin 0 0 20px 0
+  
+    .collection-create    
+      margin 10px 0 20px 0
+    
+    .collection-form
       margin 10px 0 10px 0
       
-  
-
-
-
-
-
-
-
-
-
+    .yes
+      margin 0 0 10px 0
