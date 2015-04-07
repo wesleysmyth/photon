@@ -5,33 +5,20 @@
     .module('app.home')
     .controller('Home', Home);
 
-    function Home(CollectionModel) {
-      // set path for photos
-      var photoPath = '/content/img/';
+    function Home(CollectionModel, PhotoLibraryModel, $state) {
 
       // set $scope to vm (view model)
       var vm = this;
 
       // photo library
-      vm.allPhotos = [
-        {id: 0, title: 'Albert Einstein', src: photoPath + 'albert-einstein.jpg'},{id: 1, title: 'Sound Waves', src: photoPath +  'sound-waves.jpg'},
-        {id: 2, title: 'The Beatles', src: photoPath + 'beatles.jpg'}, {id: 3, title: 'Bermuda', src: photoPath + 'bermuda.jpg'}, 
-        {id: 4, title: 'The Burger King', src: photoPath + 'burger-king.jpg'}, {id: 5, title: 'A Cat', src: photoPath + 'cat.jpg'},
-        {id: 6, title: 'M.C. Escher', src: photoPath + 'escher.gif'}, {id: 7, title: 'Garden Life', src: photoPath + 'garden.jpg'},
-        {id: 8, title: 'Gary Busey', src: photoPath + 'gary-busey.jpg'}, {id: 9, title: 'Rug Dog', src: photoPath + 'huge-dog.jpg'},
-        {id: 10, title: 'Jaguar Life', src: photoPath + 'jaguar.jpg'}, {id: 11, title: 'A Mac Original', src: photoPath + 'mac.jpg'},
-        {id: 12, title: 'They put a Man on the Moon', src: photoPath + 'manmoon.jpg'}, {id: 13, title: 'Norwegian Fjords', src: photoPath + 'norway.jpg'},
-        {id: 14, title: 'Pizza', src: photoPath + 'pizza.jpg'}, {id: 15, title: 'Russia', src: photoPath + 'russia.jpg'},
-        {id: 16, title: 'Snowboarding', src: photoPath + 'snowboarding.jpg'}, {id: 17, title: 'Lost in Space', src: photoPath + 'space.jpg'},
-        {id: 18, title: 'Spanish Dreams', src: photoPath + 'spain.jpg'}, {id: 19, title: 'Surf life', src: photoPath + 'surf.jpg'}
-      ];
+      vm.allPhotos = new PhotoLibraryModel.constructor().photoLibrary;
 
       // array of all photo collections
       vm.collections = [
         {id: 0, title: 'All Photos', photos: vm.allPhotos}
       ];
 
-      // initialize currentCollection to All Photos 
+      // initialize current collection to 'All Photos'
       vm.currentCollection = vm.collections[0];
       vm.collectionsCount = 1; 
       vm.currentPhotoIndex;
@@ -99,6 +86,7 @@
 
         // close the modal
         vm.closeModal();
+
       }
 
       function addPhoto(photoId) {
@@ -144,6 +132,7 @@
 
             // go to the current collection
             vm.currentCollection = vm.collections[collectionIndex];
+            $state.go('home.collection', {collectionName: vm.currentCollection.title.split(' ').join('')});
           }
         });
 
@@ -158,7 +147,7 @@
       function removePhoto(photoId) {
 
         // get all photos from current collection
-        var collectionPhotos = vm.collections[vm.currentCollection.id].photos;
+        var collectionPhotos = vm.collections[vm.collections.indexOf(vm.currentCollection)].photos;
 
         // remove the photo from the current collection
         for (var i = 0; i < collectionPhotos.length; i++) {

@@ -13,9 +13,15 @@
     <!-- Inject angular modules -->
     <script src="app/core/core.module.js"></script>
 
-    <script src="app/core/model.module.js"></script>
-    <script src="app/core/models.js"></script>
-    <script src="app/core/collection.model.js"></script>
+    <script src="app/core/models/model.module.js"></script>
+    <script src="app/core/models/collection.model.js"></script>
+    <script src="app/core/models/photoLibrary.model.js"></script>
+
+    <script src="app/home/modal/modal.module.js"></script> 
+    <script src="app/home/modal/modal.directive.js"></script>  
+
+    <script src="app/home/sidebar/sidebar.module.js"></script> 
+    <script src="app/home/sidebar/sidebar.directive.js"></script>    
 
     <script src="app/home/home.module.js"></script>
     <script src="app/home/home.js"></script>
@@ -24,8 +30,6 @@
     <script src="app/app.js"></script>
   </head>
   <body ng-app='app'>
-    <!-- <sidebar></sidebar> -->
-    <!-- <photos></photos> -->
     <div ui-view></div>
   </body>
 </html>

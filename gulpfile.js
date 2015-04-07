@@ -3,13 +3,12 @@ var nodemon = require('gulp-nodemon');
 var shell = require('gulp-shell');
 var bs = require('browser-sync');
 
-// the paths to our app files
+// the paths to app files
 var paths = {
-  // all our client app js files, not including 3rd party js files
+  // all client app js files, not including 3rd party js files
   scripts: ['client/app/**/*.js'],
   html: ['client/**/*.html', 'index.html'],
-  styles: ['client/content/styles/*'],
-  test: ['specs/**/*.js']
+  styles: ['client/content/styles/*']
 };
 
 // Use browser sync to automatically refresh page on client side file save
@@ -30,10 +29,5 @@ gulp.task('serve', function() {
 // watch all stylus files for changes and compile to css
 gulp.task('render', shell.task(['stylus -w client/content/styles/main.styl']));
 
-// run tests
-gulp.task('test', function() {
-  console.log('here we\'d be running all the tests and such');
-});
-
 // call start and render
-gulp.task('default', ['start','render']);
+gulp.task('default', ['start', 'render']);

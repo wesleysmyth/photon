@@ -2,6 +2,6 @@
   'use strict';
   
   angular
-    .module('app.models', ['app.collection']);
+    .module('app.modal', []);
 
 })();

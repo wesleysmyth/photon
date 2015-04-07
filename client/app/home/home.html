@@ -1,19 +1,8 @@
 <div class="container">
-  <section class="sidebar">
-    <header class="collection-header">
-      <h2>All Collections</h2>
-    </header>
-    <ul>
-      <li ng-repeat="collection in vm.collections">
-        <h3>{{collection.title}}</h3>
-        <button class="view-collection" ng-click="vm.viewCollection(vm.collections.indexOf(collection))">View</button>
-      </li>
-    </ul>
-    <div class="add-collection">
-      <h3>Add a Collection</h3>
-      <img src="../../content/img/plus.svg" ng-click="vm.collectionModal()">
-    </div>
-  </section>
+
+  <!-- sidebar directive -->
+  <sidebar></sidebar>
+
   <section class="main">
     <h2 class="current-collection-title">{{vm.currentCollection.title}}</h2>
     <h4 class="photo-numbers">Number of photos : {{vm.currentCollection.photos.length}}</h4>
@@ -26,53 +15,9 @@
         <button class="remove-photo" ng-click="vm.removePhoto(photo.id)">Remove photo from collection</button>
       </div>
     </div>
-    <div id="modal" class="hide">
 
-      <div class="inner" ng-if="vm.cModal">
-        <h2>Give your new collection a title</h2>
-        <form class="collection-form" name="newCollection" ng-submit="vm.addCollection(vm.collectionTitle)">
-          <input type="text" ng-model="vm.collectionTitle" required>
-          <input type="submit" value="Create Collection">
-        </form>
-        <button class="cancel" ng-click="vm.closeModal()">Cancel</button>
-      </div>
+    <!-- Modal directive -->
+    <modal></modal>
 
-      <div class="inner" ng-if="vm.pModal">
-        <h2>Add this photo to a collection</h2>
-        <img ng-src="{{vm.currentCollection.photos[vm.currentPhotoIndex].src}}" class="photo-preview">
-          
-          <div class="no-collections" ng-if="vm.collections.length === 1 && vm.createCollection === false">
-            <span>You have no other collections! Create a new collection to add this photo</span>
-          </div>
-
-          <!-- Choose a collection to add your photo -->
-          <div class="multiple-collections" ng-if="vm.collections.length > 1">
-            <form ng-submit="vm.addPhoto(vm.currentPhotoId)" class="photo-form">
-              <div ng-repeat="collection in vm.collections" ng-if="collection.id !== 0">
-                <input type="checkbox" ng-true-value="{{collection.id}}">
-                <span>{{collection.title}}</span>
-              </div>
-              <input type="submit" value="Add Photo to Collection(s)" class="add-photo">
-            </form>
-          </div>
-
-          <button class="collection-create" ng-click="vm.createCollection = true" ng-if="vm.createCollection === false">Create a new collection</button>
-
-          <div ng-if="vm.createCollection">
-            <h4>Give your new collection a title</h4>
-            <form class="collection-form" name="newCollection" ng-submit="vm.addCollection(vm.collectionTitle)">
-              <input type="text" ng-model="vm.collectionTitle" value="" required>
-              <input type="submit" value="Create Collection">
-            </form>
-          </div>
-
-        <button class="cancel" ng-click="vm.closeModal()">Cancel</button>
-      </div>
-      <div class="inner" ng-if="vm.deleteCollection">
-        <h2>Are you sure you want to delete this collection?</h2>
-        <button class="yes" ng-click="vm.removeCollection(vm.currentCollection.id)">Yes</button>
-        <button class="no" ng-click="vm.closeModal()">No</button>
-      </div>
-    </div>
   </section>
 </div>

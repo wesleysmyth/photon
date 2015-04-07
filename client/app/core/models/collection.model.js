@@ -15,6 +15,7 @@
 
       /////////////////////////////////////
 
+      // photo collection constructor
       function constructor(title) {
         this.title = title || '';
         this.photos = [];
