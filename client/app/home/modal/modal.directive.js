@@ -1,5 +1,6 @@
 (function() {
-  
+  'use strict';
+
   angular
     .module('app.modal')
     .directive('modal', modal);
