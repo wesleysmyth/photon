@@ -49,6 +49,36 @@ input[type=submit] {
 .vertical-padding {
   padding: 10px 0;
 }
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-in {
+  -webkit-animation: fadeIn 0.5s ease-in;
+  -moz-animation: fadeIn 0.5s ease-in;
+  -o-animation: fadeIn 0.5s ease-in;
+  animation: fadeIn 0.5s ease-in;
+}
 /*---SIDEBAR---*/
 .sidebar {
   width: 20%;
@@ -90,7 +120,7 @@ input[type=submit] {
 }
 /*---MODAL---*/
 .modal {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 100px;
@@ -140,7 +170,7 @@ input[type=submit] {
   opacity: 0;
   z-index: 1000;
   visibility: hidden;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.6);
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
@@ -151,4 +181,36 @@ input[type=submit] {
 .photo-preview {
   width: 100px;
   height: 100px;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

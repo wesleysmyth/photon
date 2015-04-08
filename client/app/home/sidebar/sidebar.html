@@ -3,7 +3,7 @@
     <h2 class="vertical-padding">All Collections</h2>
   </header>
   <ul>
-    <li ng-repeat="collection in vm.collections" class="sidebar-li vertical-padding">
+    <li ng-repeat="collection in vm.collections" class="sidebar-li vertical-padding fade-in">
       <h3 class="collection-title">{{collection.title}}</h3>
       <button ui-sref="home.collection({collectionName: vm.currentCollection.title.split(' ').join('')})" ng-click="vm.viewCollection(vm.collections.indexOf(collection))">View</button>
     </li>

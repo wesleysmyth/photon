@@ -38,6 +38,29 @@ button, input[type=submit]
   
 .vertical-padding
   padding 10px 0
+
+@-webkit-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+  
+.fade-in
+  -webkit-animation: fadeIn 0.5s ease-in;
+  -moz-animation: fadeIn 0.5s ease-in;
+  -o-animation: fadeIn 0.5s ease-in;
+  animation: fadeIn 0.5s ease-in;
   
 /*---SIDEBAR---*/
 .sidebar
@@ -77,10 +100,10 @@ button, input[type=submit]
   
 .photo 
   border-radius 2px
-                
+         
 /*---MODAL---*/
 .modal
-  position absolute
+  position fixed
   left 0
   right 0
   top 100px
@@ -130,7 +153,7 @@ button, input[type=submit]
   opacity 0
   z-index 1000
   visibility hidden
-  background rgba(0,0,0,0.4)
+  background rgba(0,0,0,0.6)
   -webkit-transition all .3s
   -moz-transition all .3s
   transition all .3s

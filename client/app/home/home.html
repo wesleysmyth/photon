@@ -8,7 +8,7 @@
     <h4 class="vertical-space">Number of photos : {{vm.currentCollection.photos.length}}</h4>
     <button class="center-block vertical-space" ng-click="vm.showModal('dc-modal')" ng-if="vm.currentCollection.id !== 0">Delete this Collection</button>
     <div class="photo-wrapper" ng-repeat="photo in vm.currentCollection.photos">
-      <img class="photo" ng-src="{{photo.src}}">
+      <img class="photo fade-in" ng-src="{{photo.src}}">
       <h3 href="#" class="vertical-space">{{photo.title}}</h3>
       <button ng-click="vm.photoModal(photo.id)">Add this Photo to Another Collection</button>
       <button class="vertical-space center-block" ng-click="vm.removePhoto(photo.id)">Remove photo from collection</button>
