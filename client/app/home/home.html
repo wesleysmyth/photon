@@ -3,21 +3,20 @@
   <!-- sidebar directive -->
   <sidebar></sidebar>
 
-  <section class="main">
-    <h2 class="current-collection-title">{{vm.currentCollection.title}}</h2>
-    <h4 class="photo-numbers">Number of photos : {{vm.currentCollection.photos.length}}</h4>
-    <button class="delete-collection" ng-click="vm.showModal('deleteCollection')" ng-if="vm.currentCollection.id !== 0">Delete this Collection</button>
-    <div class="photo-wrapper">
-      <div class="photo" ng-repeat="photo in vm.currentCollection.photos">
-        <img ng-src="{{photo.src}}">
-        <h6 href="#" class="photo-title">{{photo.title}}</h6>
-        <button class="photo-to-collection" ng-click="vm.photoModal(photo.id)">Add this Photo to Another Collection</button>
-        <button class="remove-photo" ng-click="vm.removePhoto(photo.id)">Remove photo from collection</button>
-      </div>
+  <section class="main vertical-padding center-text">
+    <h2 class="vertical-space">{{vm.currentCollection.title}}</h2>
+    <h4 class="vertical-space">Number of photos : {{vm.currentCollection.photos.length}}</h4>
+    <button class="center-block vertical-space" ng-click="vm.showModal('dc-modal')" ng-if="vm.currentCollection.id !== 0">Delete this Collection</button>
+    <div class="photo-wrapper" ng-repeat="photo in vm.currentCollection.photos">
+      <img class="photo" ng-src="{{photo.src}}">
+      <h3 href="#" class="vertical-space">{{photo.title}}</h3>
+      <button ng-click="vm.photoModal(photo.id)">Add this Photo to Another Collection</button>
+      <button class="vertical-space center-block" ng-click="vm.removePhoto(photo.id)">Remove photo from collection</button>
     </div>
 
     <!-- Modal directive -->
     <modal></modal>
+    <div class="modal-overlay"></div>
 
   </section>
 </div>

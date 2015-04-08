@@ -1,15 +1,15 @@
 <section class="sidebar">
-  <header class="collection-header">
-    <h2>All Collections</h2>
+  <header class="collection-header center-text">
+    <h2 class="vertical-padding">All Collections</h2>
   </header>
   <ul>
-    <li ng-repeat="collection in vm.collections">
-      <h3>{{collection.title}}</h3>
-      <button ui-sref="home.collection({collectionName: vm.currentCollection.title.split(' ').join('')})" class="view-collection" ng-click="vm.viewCollection(vm.collections.indexOf(collection))">View</button>
+    <li ng-repeat="collection in vm.collections" class="sidebar-li vertical-padding">
+      <h3 class="collection-title">{{collection.title}}</h3>
+      <button ui-sref="home.collection({collectionName: vm.currentCollection.title.split(' ').join('')})" ng-click="vm.viewCollection(vm.collections.indexOf(collection))">View</button>
     </li>
   </ul>
-  <div class="add-collection">
-    <h3>Add a Collection</h3>
-    <img src="../../content/img/plus.svg" ng-click="vm.collectionModal()">
+  <div class="add-collection center-text">
+    <h3 class="vertical-space">Add a Collection</h3>
+    <img class="plus-sign" src="../../content/img/plus.svg" ng-click="vm.collectionModal()">
   </div>
 </section>

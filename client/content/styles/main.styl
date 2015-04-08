@@ -1,168 +1,143 @@
+/*---GLOBAL---*/
+*, *:before, *:after
+  -webkit-box-sizing border-box
+  -moz-box-sizing border-box
+  box-sizing border-box
+
 body
-  background-color #FAFAFA
+  background-color #F0F0F0
   margin 0
   font-family Helvetica
-  color #5F505B
+  color #00000C
   
-h1, h2, h3, h4, h5, h6
+h1, h2, h3, h4, h5, h6, ul, li
   margin 0
+  padding 0
   
 button, input[type=submit]
-  cursor pointer
-  color white
-  border-radius 4px
   background #398999
+  border-radius 4px
   border none
   padding 5px
+  color white
   font-size 12px
+  cursor pointer
 
-/* Wrapper that contains both sidebar and the main photo section */
-.container
+.center-text
+  text-align center
+  
+.center-block
+  display block
+  margin 0 auto
+
+.hide
+  display none
+
+.vertical-space
+  margin 10px auto
+  
+.vertical-padding
+  padding 10px 0
+  
+/*---SIDEBAR---*/
+.sidebar
+  width 20%
   position fixed
   top 0
-  right 0
   bottom 0
-  left 0
+  background-color #E4E4E4
   
-  .collection-header
-    background-color #5F505B
-    
-    h2
-      text-align center
-      padding 10px 0 10px 0
-      color #FAFAFA
+.collection-header
+  background-color #FC5656
+
+.collection-title
+  width 75%
+  display inline-block
+  margin-left 10px
+
+.sidebar-li
+  list-style none
+  border-bottom 1px solid #D0D0D0
   
-  /* sidebar styles */
-  .sidebar
-    width 20%
-    background-color #F5EAD8
-    position fixed
-    top 0
-    bottom 0
-
-    /* view collection button */
-    .view-collection
-      float right
-      margin-top -33px
-      margin-right 10px
+.plus-sign
+  width 50px
+  cursor pointer
     
-    ul
-      margin 0
-      padding 0
+/*---MAIN---*/
+.main
+  width 80%
+  position absolute
+  top 0
+  bottom 0
+  right 0
 
-    /* styles for each item in the sidebar */
-    li
-      list-style none
-      border-bottom 1px solid #D0D0D0
-      
-      h3  
-        margin 14px 0 10px 20px
-        max-width 74%
-    
-    .add-collection
-      
-      h3
-        text-align center
-        padding 10px 0 0 0 
-      
-      img
-        width 50px
-        display block
-        margin 0 auto
-        cursor pointer
-    
-  /* main photo section styles */
-  .main
-    background-color #D8DFCF
-    width 80%
-    position fixed
-    right 0
-    top 0
-    bottom 0
-    overflow scroll
-
-    /* collection title */
-    .current-collection-title
-      text-align center
-      margin 20px 0 0 0
-      
-    .photo-numbers
-      text-align center
-      margin 10px 0 0 0
-      
-    .delete-collection
-      display block
-      margin 10px auto
-      
-    /* photo wrapper div */
-    .photo-wrapper
-      text-align center
-
-    .photo
-      display inline-block
-      margin 5px
-      
-      img
-        border-radius 2px
-    
-      .photo-title
-        display block
-        position relative
-        text-decoration none
-        font-size 20px
-        text-align left
-      
-      .photo-to-collection
-        display block
-        margin 5px 0 5px 0
-        
-      .remove-photo
-        display block
+.photo-wrapper
+  display inline-block
+  margin 5px
+  
+.photo 
+  border-radius 2px
                 
-  /* modal styles */
-  #modal
-    position fixed
-    top 0
-    right 0
-    bottom 0
-    left 0
-    background-color rgba(0,0,0,0.4)
-  
-  .hide
-    display none !important
+/*---MODAL---*/
+.modal
+  position absolute
+  left 0
+  right 0
+  top 100px
+  margin 0 auto
+  width 50%
+  max-width 630px
+  min-width 220px
+  z-index 2000
+  -webkit-backface-visibility hidden
+  -moz-backface-visibility hidden
+  backface-visibility hidden
+  visibility hidden
 
-  /* inner window for the modal */
-  .inner
-    width 50%
-    margin -50px 0 0 -15%
-    text-align center
-    background-color #FFF
-    height auto
-    position absolute
-    top 30%
-    left 50%
-    border-radius 3px
-    
-    h2
-      margin 10px 0 10px 0
+.modal-content
+  background #FAFAFA
+  border-radius 4px
+  margin 0 auto
+  padding 10px
+  opacity 0
+  -webkit-transform scale(0.7)
+  -moz-transform scale(0.7)
+  -ms-transform scale(0.7)
+  transform scale(0.7)
+  -webkit-transition all .3s
+  -moz-transition all .3s
+  transition all .3s
   
-    .cancel
-      margin 0 0 10px 0
-      
-    .add-photo
-      display block
-      margin 10px auto
+.modal.active
+  visibility visible
+  
+  .modal-content
+    -webkit-transform scale(1)
+    -moz-transform scale(1)
+    -ms-transform scale(1)
+    transform scale(1)
 
-    .photo-preview
-      width 100px
-      height 100px
-      margin 0 0 20px 0
-  
-    .collection-create    
-      margin 10px 0 20px 0
-    
-    .collection-form
-      margin 10px 0 10px 0
-      
-    .yes
-      margin 0 0 10px 0
+.modal.active ~ .modal-overlay
+  opacity 1
+  visibility visible
+
+.modal-overlay
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  opacity 0
+  z-index 1000
+  visibility hidden
+  background rgba(0,0,0,0.4)
+  -webkit-transition all .3s
+  -moz-transition all .3s
+  transition all .3s
+
+.show-opaque
+  opacity 1
+
+.photo-preview
+  width 100px
+  height 100px

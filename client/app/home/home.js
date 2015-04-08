@@ -20,16 +20,12 @@
 
       // initialize current collection to 'All Photos'
       vm.currentCollection = vm.collections[0];
-      vm.collectionsCount = 1; 
+      vm.collectionOnly = false;
+      vm.createCollection = false;
+      vm.collectionsCount = 1;
+      vm.states = ['co-modal', 'p-modal', 'dc-modal'];
       vm.currentPhotoIndex;
       vm.currentPhotoId;
-
-      // initialize state variables
-      vm.createCollection = false;
-      vm.deleteCollection = false;
-      vm.collectionOnly = false;
-      vm.pModal = false;
-      vm.cModal = false;
 
       // Home controller methods
       vm.viewCollection = viewCollection;
@@ -58,18 +54,18 @@
         // add the new collection to the list of collections
         vm.collections.push(newCollection);
 
-        // reset createCollection mode and clear form
-        vm.createCollection = false;  
+        // reset form and create collection mode
         vm.collectionTitle = '';
+        vm.createCollection = false;
 
         // close the modal if in collectionOnly creation mode (not on the fly)
         if (vm.collectionOnly) {
-          vm.closeModal();
+          vm.closeModal('co-modal');
         }
       }
 
       function removeCollection(collectionId) {
-        
+
         // get the index of the collection in the collections array
         var collectionIndex = (function(){
           for (var i = 0; i < vm.collections.length; i++) {
@@ -85,7 +81,7 @@
         vm.currentCollection = vm.collections[0];
 
         // close the modal
-        vm.closeModal();
+        vm.closeModal('dc-modal');
 
       }
 
@@ -140,7 +136,7 @@
         document.getElementsByClassName('photo-form')[0].reset();
 
         // close the modal
-        vm.closeModal();
+        vm.closeModal('p-modal');
 
       }
 
@@ -160,40 +156,53 @@
 
       function showModal(state) {
 
-        // set current modal state to true, this chooses which inner modal should show
-        vm[state] = true;
+        // hide the modals that are not active
+        vm.states.forEach(function(item){
+          if (item !== state) {
+            $('.' + item).addClass('hide');
+          }
+        });
 
-        // show the modal
-        $('#modal').removeClass('hide');
+        // show the active modal
+        $('.modal').addClass('active');
+        $('.' + state).addClass('modal-content');
+        $('.' + state).addClass('show-opaque');
 
-        // if click event occurs outside the modal, close the modal
-        $('#modal').on('click', function(e){
+        // if click event occurs outside the modal, close the active modal
+        $('.modal-overlay').on('click', function(e){
           if (e.target === e.currentTarget) {
-            vm.closeModal();
+            vm.closeModal(state);
           }
         });
       }
 
-      function closeModal() {
-
-        // turn off createCollection, deleteCollection, photoModal, and collectionModal
-        vm.createCollection = false;
-        vm.deleteCollection = false;
-        vm.collectionOnly = false;
-        vm.pModal = false;
-        vm.cModal = false;
+      function closeModal(state) {
 
         // reset the collection title in case it had been previously filled in but not submitted
         vm.collectionTitle = '';
+        vm.createCollection = false;
+        vm.collectionOnly = false;
 
-        // hide the modal
-        $('#modal').addClass('hide');
+        // hide the active modal
+        $('.modal').removeClass('active');
+        $('.' + state).removeClass('show-opaque');
+        
+        // reset each modal to deactive state
+        setTimeout(function(){
+          $('.' + state).removeClass('modal-content');
+          vm.states.forEach(function(item){
+            if (item !== state) {
+              $('.' + item).removeClass('hide');
+            }
+          });
+        }, 300);
+
       }
 
       // show the collection modal
       function collectionModal() {
         vm.collectionOnly = true;
-        vm.showModal('cModal');
+        vm.showModal('co-modal');
       }
 
       // show the photo modal
@@ -210,7 +219,7 @@
         }
 
         // show the photo modal
-        vm.showModal('pModal');
+        vm.showModal('p-modal');
       }
 
     }
